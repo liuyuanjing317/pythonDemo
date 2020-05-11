@@ -418,4 +418,45 @@ print(iter(rev))
 for char in rev:
     print(char)
 
+#生成器表达式¶
 print(sum(i*i for i in range(10))   )
+
+#标准库 os 系统入口类
+import os
+print(os.getcwd() )
+os.system('mkdir today')
+
+# 文件管理或文件目录
+import shutil
+#shutil.copyfile('data.db', 'archive.db')
+
+#文件通配符¶
+import  glob
+print(glob.glob('*.py'))
+
+import sys
+print(sys.argv)
+
+# math 基础的数据操作
+# python 虚拟环境用于解决不同模块之间版本依赖的问题  venv
+
+# pyhton 在进行浮点运算时，底层 的运算机制是以二进制来计算的，计算结果与十进制的计算结果有误差，
+# 比如 1/10 以十进制计算可得 0.1，但是以二进制计算只会无限趋近于0.1 ，
+# 在计算时可以使用四舍五入获得想要的结果 python 提供了精确计算的库可使用 https://scipy.org/，
+# 在需要十进制精确计算的情况下可使用decimal 模块，有理数的运算可使用 fractions模块来实现
+#表示性错误 是指某些（其实是大多数）十进制小数无法以二进制（以 2 为基数的计数制）精确表示这一事实造成的错误。
+# 这就是为什么 Python（或者 Perl、C、C++、Java、Fortran 以及许多其他语言）经常不会显示你所期待的精确十进制数值的主要原因
+
+
+x = 3.14159
+print(x.as_integer_ratio())
+print(x == 3537115888337719 / 1125899906842624)
+
+#print(2**52)
+#print(2**53)
+#print(2**56)
+
+q, r = divmod(2**56, 10)
+print(r)
+print(q+1)
+
