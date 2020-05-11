@@ -60,11 +60,9 @@ def getDetail(link):
     chrome_options.add_argument('--disable-gpu')
     # 启动浏览器，获取网页源代码
     browser = webdriver.Chrome(chrome_options=chrome_options)
-    browser.maximize_window()
     for i in link:
         print(i)
-        br=webdriver.PhantomJS()
-        br.maximize_window()
+
         browser.get(i)
         time.sleep(1)
         #bxzn-action1-right-top
@@ -72,11 +70,12 @@ def getDetail(link):
         print(td.text)
         picname=str(link.index(i))+'.png'
         try:
-            br=webdriver.PhantomJS()
+            br=webdriver.PhantomJS(executable_path=r'E:\server_environment\phantomjs-2.1.1-windows\bin\phantomjs.exe')
             br.maximize_window()
             br.get(i)
             picture_url=br.get_screenshot_as_file('G:\\workspace\\personal_project\\python\\pythonDemo\\python-demo-1\\pic\\'+picname)
             print("%s：截图成功！！！" % picture_url)
+            br.close()
         except BaseException as msg:
             print(msg)
         #browser.quit()
